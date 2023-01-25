@@ -11,6 +11,13 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() {
-        return "👋  Hello, World ! 🌍";
+        String color = System.getenv("COLOR");
+        if ("green".equalsIgnoreCase(color)) {
+            return "🟢 👋  Hello, World ! 🌍 🟢";
+        } else if ("blue".equalsIgnoreCase(color)) {
+            return "🔵 👋  Hello, World ! 🌍 🔵";
+        } else {
+            return "👋  Hello, World ! 🌍";
+        }
     }
 }
